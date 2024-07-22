@@ -88,7 +88,7 @@ class _SearchScreenState extends State<arena_list> {
                         items: <String>[
                           'Colombo 7',
                           'Rajagiriya',
-                          'Kottawaadadf',
+                          'Kottawa',
                           'Gampaha'
                         ] // List of options
                             .map<DropdownMenuItem<String>>((String value) {
