@@ -86,10 +86,10 @@ class _SearchScreenState extends State<arena_list> {
                           });
                         },
                         items: <String>[
-                          'Colombo 700',
+                          'Colombo 7',
                           'Rajagiriya',
                           'Kottawa',
-                          'Gampahaaaa'
+                          'Gampaha'
                         ] // List of options
                             .map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
