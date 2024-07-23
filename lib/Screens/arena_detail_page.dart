@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Const/Colors.dart';
+import 'package:flutter_application_1/Data/arena_data.dart';
+import 'package:flutter_application_1/Screens/arena_Booking.dart';
 import 'package:flutter_application_1/Screens/arena_list.dart';
 import 'package:flutter_application_1/Widgets/custom_button.dart';
 import 'package:flutter_application_1/Widgets/result_card.dart';
@@ -22,7 +24,7 @@ class _DetailPageState extends State<DetailPage> {
         backgroundColor: maincolor,
         title: Text(
           widget.card.title,
-          style: TextStyle(color: Colors.black),
+          style: const TextStyle(color: Colors.black),
         ),
         actions: [
           Row(
@@ -50,7 +52,7 @@ class _DetailPageState extends State<DetailPage> {
           ),
         ],
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios_new_rounded,
             color: Colors.black,
           ),
@@ -78,7 +80,7 @@ class _DetailPageState extends State<DetailPage> {
                   fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -88,7 +90,7 @@ class _DetailPageState extends State<DetailPage> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
                         color: widget.card.status == "Available"
-                            ? Color(0xff69E156)
+                            ? const Color(0xff69E156)
                             : Colors.red),
                   ),
                   const SizedBox(
@@ -101,12 +103,12 @@ class _DetailPageState extends State<DetailPage> {
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.w500,
                         color: widget.card.status == "Available"
-                            ? Color(0xff69E156)
+                            ? const Color(0xff69E156)
                             : Colors.red),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Row(
@@ -118,14 +120,14 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                   Text(
                     'Rs. ${widget.card.price.toStringAsFixed(2)}',
-                    style: TextStyle(fontWeight: FontWeight.w500),
+                    style: const TextStyle(fontWeight: FontWeight.w500),
                   )
                 ],
               ),
               Container(
                 height: 100,
                 width: 250,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xffF9F7F7),
                   // borderRadius: BorderRadius.circular(50)
                 ),
@@ -137,12 +139,12 @@ class _DetailPageState extends State<DetailPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.phone_in_talk_rounded,
                         color: Colors.black,
                         size: 50,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       Column(
@@ -150,10 +152,11 @@ class _DetailPageState extends State<DetailPage> {
                         children: [
                           Text(
                             "0" + widget.card.tp1.toStringAsFixed(0),
-                            style: TextStyle(fontWeight: FontWeight.w500),
+                            style: const TextStyle(fontWeight: FontWeight.w500),
                           ),
                           Text("0" + widget.card.tp2.toStringAsFixed(0),
-                              style: TextStyle(fontWeight: FontWeight.w500))
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.w500))
                         ],
                       )
                     ],
@@ -163,7 +166,7 @@ class _DetailPageState extends State<DetailPage> {
               Container(
                 height: 100,
                 width: 300,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xffF9F7F7),
                 ),
                 child: Card(
@@ -174,34 +177,48 @@ class _DetailPageState extends State<DetailPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.timer_sharp,
                         color: Colors.black,
                         size: 50,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text("Mon : " + widget.card.monday,
-                              style: TextStyle(fontWeight: FontWeight.w500)),
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.w500)),
                           Text("Tue-Wed : " + widget.card.tue_wedn,
-                              style: TextStyle(fontWeight: FontWeight.w500)),
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.w500)),
                           Text("Sun : " + widget.card.sunday,
-                              style: TextStyle(fontWeight: FontWeight.w500)),
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.w500)),
                         ],
                       )
                     ],
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Custom_button(Bgcolor: maincolor, title: "BOOK NOW"),
-              SizedBox(
+              GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => arena_booking(
+                            card: widget.card,
+                          ),
+                        ));
+                  },
+                  child: const Custom_button(
+                      Bgcolor: maincolor, title: "BOOK NOW")),
+              const SizedBox(
                 height: 20,
               ),
 
@@ -209,7 +226,7 @@ class _DetailPageState extends State<DetailPage> {
                 borderRadius: BorderRadius.circular(15),
                 child: Image.asset(widget.card.loc_img),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               review_card(
@@ -228,3 +245,63 @@ class _DetailPageState extends State<DetailPage> {
     );
   }
 }
+
+// class arena_booking extends StatefulWidget {
+//   // final ScrollableCard card;
+//   const arena_booking({
+//     super.key,
+//     // required this.card,
+//   });
+
+//   @override
+//   State<arena_booking> createState() => _arena_bookingState();
+// }
+
+// class _arena_bookingState extends State<arena_booking> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: AppBar(
+//         backgroundColor: maincolor,
+//         title: const Text(
+//           // widget.card.title,
+//           "sdada",
+//           style: TextStyle(color: Colors.black),
+//         ),
+//         // actions: [
+//         //   Row(
+//         //     mainAxisAlignment: MainAxisAlignment.end,
+//         //     children: [
+//         //       IconButton(
+//         //         icon: const Icon(
+//         //           Icons.calendar_month,
+//         //           color: Colors.black,
+//         //         ),
+//         //         onPressed: () {
+//         //           // Handle search logic
+//         //         },
+//         //       ),
+//         //       IconButton(
+//         //         icon: const Icon(
+//         //           Icons.person,
+//         //           color: Colors.black,
+//         //         ),
+//         //         onPressed: () {
+//         //           // Handle search logic
+//         //         },
+//         //       ),
+//         //     ],
+//         //   ),
+//         // ],
+//         // leading: IconButton(
+//         //   icon: Icon(
+//         //     Icons.arrow_back_ios_new_rounded,
+//         //     color: Colors.black,
+//         //   ),
+//         //   onPressed: () {
+//         //     Navigator.pop(context);
+//         //   },
+//       ),
+//     );
+//   }
+// }
