@@ -193,12 +193,6 @@ class _Login_pageState extends State<Login_page> {
                       builder: (context) => main_dash(),
                     ));
               }
-              ;
-              if (result == null) {
-                setState(() {
-                  error = 'Couldn\'t signin with those Credentials ! ';
-                });
-              }
             },
             child: Custom_button(Bgcolor: maincolor, title: "Login")),
         SizedBox(
