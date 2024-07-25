@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/result_card.dart';
 
 final List<ScrollableCard> cards = [
-  ScrollableCard(
+  const ScrollableCard(
       title: "Royal - MAS Arena",
       location: "Rajagiriya",
       status: "Available",

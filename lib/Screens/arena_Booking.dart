@@ -9,10 +9,12 @@ import 'package:flutter_application_1/Widgets/result_card.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 
 class arena_booking extends StatefulWidget {
+  final int price_per_hour;
   final ScrollableCard card;
   const arena_booking({
     super.key,
     required this.card,
+    required this.price_per_hour,
   });
 
   @override
@@ -30,6 +32,15 @@ class _arena_bookingState extends State<arena_booking> {
   DateTime ends = DateTime.now();
 
   get card => null;
+  int totalhours = 0;
+
+  int minutes_to_hours(double total_minutes) {
+    final hours = total_minutes ~/ 60; // Integer division for full hours
+    final remaining_minutes = total_minutes.remainder(60);
+
+    // Round up if any remaining minutes exist
+    return remaining_minutes > 0 ? hours + 1 : hours;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -243,6 +254,17 @@ class _arena_bookingState extends State<arena_booking> {
                                           ends = date;
                                           endsstring =
                                               '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}   ${date.hour}:${date.minute.toString().padLeft(2, '0')}';
+                                          final duration =
+                                              ends.difference(starts);
+                                          final total_minutes =
+                                              duration.inMinutes.toDouble();
+                                          final hours =
+                                              minutes_to_hours(total_minutes);
+
+                                          // Print or display the calculated hours
+                                          print(
+                                              'Hours between starts and ends (rounded up): $hours');
+                                          totalhours = hours;
                                         });
                                       },
                                       currentTime: ends,
@@ -333,13 +355,17 @@ class _arena_bookingState extends State<arena_booking> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => PaymentScreen(
-                                              amount: 35477,
-                                              cardLabel: "seff",
-                                              cardName: "dfsdd",
-                                              expiryDate: "sfdfdf",
-                                              cvvCode: "seff",
-                                              saveCard: true,
-                                              usePayPal: false),
+                                            amount: 35477,
+                                            cardLabel: "seff",
+                                            cardName: "dfsdd",
+                                            expiryDate: "sfdfdf",
+                                            cvvCode: "seff",
+                                            saveCard: true,
+                                            usePayPal: false,
+                                            hours: totalhours,
+                                            price_per_hour:
+                                                widget.price_per_hour,
+                                          ),
                                         ));
                                   } else {}
                                 },

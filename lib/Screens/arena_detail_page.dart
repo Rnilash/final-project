@@ -214,6 +214,7 @@ class _DetailPageState extends State<DetailPage> {
                         MaterialPageRoute(
                           builder: (context) => arena_booking(
                             card: widget.card,
+                            price_per_hour: widget.card.price.toInt(),
                           ),
                         ));
                   },
