@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Const/Colors.dart';
 import 'package:flutter_application_1/Data/arena_data.dart';
 import 'package:flutter_application_1/Screens/arena_detail_page.dart';
+import 'package:flutter_application_1/Screens/main_dashboard.dart';
 import 'package:flutter_application_1/Widgets/result_card.dart';
 import 'package:flutter_application_1/Widgets/sport_tile.dart';
 
@@ -47,9 +48,15 @@ class _SearchScreenState extends State<arena_list> {
               ],
             ),
           ],
-          leading: const Icon(
-            Icons.arrow_back_ios_new_rounded,
-            color: Colors.black,
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => main_dash()));
+            },
+            child: const Icon(
+              Icons.arrow_back_ios_new_rounded,
+              color: Colors.black,
+            ),
           ),
         ),
         body: SingleChildScrollView(

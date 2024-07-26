@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_application_1/Const/Colors.dart';
 import 'package:flutter_application_1/Screens/main_dashboard.dart';
+import 'package:flutter_application_1/Widgets/custom_button.dart';
 import 'package:intl/intl.dart';
 
 class PaymentScreen extends StatefulWidget {
@@ -256,34 +257,32 @@ class _PaymentScreenState extends State<PaymentScreen> {
                             labelText: 'CVV',
                           ),
                         ),
-                        ElevatedButton(
-                          onPressed: () {
-                            if (_formKey.currentState!.validate()) {
-                              // Form is valid, proceed with payment
-                              setState(() {
-                                _isCardValid = true;
-                              });
-                              // Replace this with your payment processing logic
-                              print('Card details are valid');
-                            } else {
-                              setState(() {
-                                _isCardValid = false;
-                              });
-                            }
-                          },
-                          child: Text('Submit'),
+                        SizedBox(
+                          height: 70,
                         ),
+                        GestureDetector(
+                            onTap: () {
+                              if (_formKey.currentState!.validate()) {
+                                // Form is valid, proceed with payment
+                                setState(() {
+                                  _isCardValid = true;
+                                });
+                                // Replace this with your payment processing logic
+                                print('Card details are valid');
+                              } else {
+                                setState(() {
+                                  _isCardValid = false;
+                                });
+                              }
+                              // Navigator.push(context, MaterialPageRoute(builder:))
+                            },
+                            child: Custom_button(
+                                Bgcolor: maincolor, title: "Pay Now")),
                         if (_isCardValid) Text('Card is valid'),
                       ],
                     ),
                   ),
                   const SizedBox(height: 16),
-                  ElevatedButton(
-                    onPressed: () {
-                      // Handle payment
-                    },
-                    child: const Text('Pay'),
-                  ),
                 ],
               ),
             ]),

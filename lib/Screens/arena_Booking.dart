@@ -350,17 +350,16 @@ class _arena_bookingState extends State<arena_booking> {
                           children: [
                             GestureDetector(
                                 onTap: () {
-                                  if (formkey.currentState!.validate()) {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (context) => PaymentScreen(
-                                            hours: totalhours,
-                                            price_per_hour:
-                                                widget.price_per_hour,
-                                          ),
-                                        ));
-                                  } else {}
+                                  // if (formkey.currentState!.validate()) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => PaymentScreen(
+                                          hours: totalhours,
+                                          price_per_hour: widget.price_per_hour,
+                                        ),
+                                      ));
+                                  // } else {}
                                 },
                                 child: const Custom_button(
                                     Bgcolor: maincolor, title: "BOOK NOW")),
