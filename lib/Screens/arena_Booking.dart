@@ -355,13 +355,6 @@ class _arena_bookingState extends State<arena_booking> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => PaymentScreen(
-                                            amount: 35477,
-                                            cardLabel: "seff",
-                                            cardName: "dfsdd",
-                                            expiryDate: "sfdfdf",
-                                            cvvCode: "seff",
-                                            saveCard: true,
-                                            usePayPal: false,
                                             hours: totalhours,
                                             price_per_hour:
                                                 widget.price_per_hour,

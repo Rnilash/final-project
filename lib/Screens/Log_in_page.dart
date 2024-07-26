@@ -74,7 +74,7 @@ class _Login_pageState extends State<Login_page> {
                 fontFamily: "Poppins")),
         Row(
           children: [
-            Text("You can ",
+            const Text("You can ",
                 style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500)),
             GestureDetector(
               onTap: () {
@@ -182,7 +182,7 @@ class _Login_pageState extends State<Login_page> {
         ),
         Text(
           error,
-          style: TextStyle(color: Colors.red),
+          style: const TextStyle(color: Colors.red),
         ),
         GestureDetector(
             onTap: () {
@@ -190,12 +190,12 @@ class _Login_pageState extends State<Login_page> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => main_dash(),
+                      builder: (context) => const main_dash(),
                     ));
               }
             },
-            child: Custom_button(Bgcolor: maincolor, title: "Login")),
-        SizedBox(
+            child: const Custom_button(Bgcolor: maincolor, title: "Login")),
+        const SizedBox(
           height: 30,
         ),
         const Center(
@@ -207,7 +207,7 @@ class _Login_pageState extends State<Login_page> {
                 fontWeight: FontWeight.w500),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         Row(
@@ -217,14 +217,14 @@ class _Login_pageState extends State<Login_page> {
               "assets/images/icons8-facebook-48.png",
               width: 30,
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Image.asset(
               "assets/images/icons8-google-48.png",
               width: 30,
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Image.asset(
