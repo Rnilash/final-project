@@ -90,10 +90,11 @@ class ScrollableCard extends StatelessWidget {
                         height: 10,
                         width: 10,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            color: status == "Available"
-                                ? Color(0xff69E156)
-                                : Colors.red),
+                          borderRadius: BorderRadius.circular(100),
+                          color: status == "Available" || status == "Free"
+                              ? Color(0xff69E156) // Green for Available or Free
+                              : Colors.red,
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
@@ -101,12 +102,13 @@ class ScrollableCard extends StatelessWidget {
                       Text(
                         status,
                         style: TextStyle(
-                            fontSize: 13,
-                            fontFamily: "Poppins",
-                            fontWeight: FontWeight.w500,
-                            color: status == "Available"
-                                ? Color(0xff69E156)
-                                : Colors.red),
+                          fontSize: 13,
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w500,
+                          color: status == "Available" || status == "Free"
+                              ? Color(0xff69E156) // Green for Available or Free
+                              : Colors.red,
+                        ),
                       ),
                     ],
                   ),

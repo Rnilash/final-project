@@ -3,22 +3,24 @@ import 'package:flutter_application_1/Const/Colors.dart';
 import 'package:flutter_application_1/Data/arena_data.dart';
 import 'package:flutter_application_1/Screens/arena_Booking.dart';
 import 'package:flutter_application_1/Screens/arena_list.dart';
+import 'package:flutter_application_1/Screens/coach_booking_page.dart';
+import 'package:flutter_application_1/Screens/coach_list.dart';
 import 'package:flutter_application_1/Screens/home_screen.dart';
 import 'package:flutter_application_1/Widgets/Scrollable_card_.dart';
 import 'package:flutter_application_1/Widgets/custom_button.dart';
 
 import 'package:flutter_application_1/Widgets/review_card.dart';
 
-class DetailPage extends StatefulWidget {
+class Coach_DetailPage extends StatefulWidget {
   final ScrollableCard card;
 
-  const DetailPage({Key? key, required this.card}) : super(key: key);
+  const Coach_DetailPage({Key? key, required this.card}) : super(key: key);
 
   @override
-  State<DetailPage> createState() => _DetailPageState();
+  State<Coach_DetailPage> createState() => _DetailPageState();
 }
 
-class _DetailPageState extends State<DetailPage> {
+class _DetailPageState extends State<Coach_DetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +64,7 @@ class _DetailPageState extends State<DetailPage> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => arena_list(),
+                  builder: (context) => const coach_list(),
                 ));
           },
         ),
@@ -72,60 +74,81 @@ class _DetailPageState extends State<DetailPage> {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              // Display card details here, e.g., larger image, description
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
-                  widget.card.image, // Replace with your image path if needed
-                  height: 200,
-                  width: 420,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              const SizedBox(height: 15),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(
-                    height: 10,
-                    width: 10,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        color: widget.card.status == "Available"
-                            ? const Color(0xff69E156)
-                            : Colors.red),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image.asset(
+                      widget
+                          .card.image, // Replace with your image path if needed
+                      height: 200,
+                      width: 200,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   const SizedBox(
-                    width: 10,
+                    height: 15,
+                    width: 30,
                   ),
-                  Text(
-                    widget.card.status,
-                    style: TextStyle(
-                        fontSize: 13,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w500,
-                        color: widget.card.status == "Available"
-                            ? const Color(0xff69E156)
-                            : Colors.red),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            height: 10,
+                            width: 10,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: widget.card.status == "Available" ||
+                                      widget.card.status == "Free"
+                                  ? const Color(
+                                      0xff69E156) // Green for Available or Free
+                                  : Colors.red,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            widget.card.status,
+                            style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w500,
+                              color: widget.card.status == "Available" ||
+                                      widget.card.status == "Free"
+                                  ? const Color(
+                                      0xff69E156) // Green for Available or Free
+                                  : Colors.red,
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        "Qualified " + widget.card.category,
+                        style: const TextStyle(
+                            fontSize: 11, fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Text(
+                        'Rs. ${widget.card.price.toStringAsFixed(2)} per hour',
+                        style: const TextStyle(fontWeight: FontWeight.w500),
+                      )
+                    ],
                   ),
                 ],
               ),
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    widget.card.category,
-                    style: const TextStyle(fontWeight: FontWeight.w500),
-                  ),
-                  Text(
-                    'Rs. ${widget.card.price.toStringAsFixed(2)}',
-                    style: const TextStyle(fontWeight: FontWeight.w500),
-                  )
-                ],
-              ),
+              // Display card details here, e.g., larger image, description
+
               Container(
                 height: 100,
                 width: 250,
@@ -164,6 +187,9 @@ class _DetailPageState extends State<DetailPage> {
                     ],
                   ),
                 ),
+              ),
+              const SizedBox(
+                height: 10,
               ),
               Container(
                 height: 100,
@@ -205,15 +231,55 @@ class _DetailPageState extends State<DetailPage> {
                   ),
                 ),
               ),
+
               const SizedBox(
-                height: 20,
+                height: 10,
+              ),
+              Container(
+                height: 100,
+                width: 250,
+                decoration: const BoxDecoration(
+                  color: Color(0xffF9F7F7),
+                  // borderRadius: BorderRadius.circular(50)
+                ),
+                child: Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.location_on_outlined,
+                        color: Colors.black,
+                        size: 50,
+                      ),
+                      const SizedBox(
+                        width: 20,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            widget.card.location,
+                            style: const TextStyle(fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
               ),
               GestureDetector(
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => arena_booking(
+                          builder: (context) => coach_booking(
                             card: widget.card,
                             price_per_hour: widget.card.price.toInt(),
                           ),
@@ -225,13 +291,6 @@ class _DetailPageState extends State<DetailPage> {
                 height: 20,
               ),
 
-              ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.asset(widget.card.loc_img),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
               review_card(
                   image: widget.card.reviewer_img,
                   name: widget.card.reviewer_name,

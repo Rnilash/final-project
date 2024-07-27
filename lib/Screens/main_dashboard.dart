@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Const/Colors.dart';
 import 'package:flutter_application_1/Screens/arena_list.dart';
+import 'package:flutter_application_1/Screens/coach_list.dart';
 import 'package:flutter_application_1/Services/Auth.dart';
 import 'package:flutter_application_1/Widgets/dash_tile.dart';
 
@@ -53,7 +54,16 @@ class main_dash extends StatelessWidget {
                     SizedBox(
                       height: 40,
                     ),
-                    dash_tile(title: "Coach", image: "assets/images/Coach.png"),
+                    GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => coach_list(),
+                              ));
+                        },
+                        child: dash_tile(
+                            title: "Coach", image: "assets/images/Coach.png")),
                     SizedBox(
                       height: 40,
                     ),

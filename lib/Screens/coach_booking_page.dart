@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Const/Colors.dart';
+import 'package:flutter_application_1/Screens/Coach_details_page.dart';
 import 'package:flutter_application_1/Screens/arena_detail_page.dart';
 import 'package:flutter_application_1/Screens/home_screen.dart';
 import 'package:flutter_application_1/Screens/payment_page.dart';
@@ -8,20 +9,20 @@ import 'package:flutter_application_1/Widgets/custom_button.dart';
 
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 
-class arena_booking extends StatefulWidget {
+class coach_booking extends StatefulWidget {
   final int price_per_hour;
   final ScrollableCard card;
-  const arena_booking({
+  const coach_booking({
     super.key,
     required this.card,
     required this.price_per_hour,
   });
 
   @override
-  State<arena_booking> createState() => _arena_bookingState();
+  State<coach_booking> createState() => _arena_bookingState();
 }
 
-class _arena_bookingState extends State<arena_booking> {
+class _arena_bookingState extends State<coach_booking> {
   final formkey = GlobalKey<FormState>();
   String name = "";
   String startsstring = "";
@@ -85,7 +86,7 @@ class _arena_bookingState extends State<arena_booking> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => DetailPage(
+                    builder: (context) => Coach_DetailPage(
                       card: widget.card,
                     ),
                   ));
@@ -96,15 +97,78 @@ class _arena_bookingState extends State<arena_booking> {
             child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      widget
-                          .card.image, // Replace with your image path if needed
-                      height: 200,
-                      width: 420,
-                      fit: BoxFit.cover,
-                    ),
+                  Row(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.asset(
+                          widget.card
+                              .image, // Replace with your image path if needed
+                          height: 200,
+                          width: 200,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 15,
+                        width: 30,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Row(
+                            children: [
+                              Container(
+                                height: 10,
+                                width: 10,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  color: widget.card.status == "Available" ||
+                                          widget.card.status == "Free"
+                                      ? const Color(
+                                          0xff69E156) // Green for Available or Free
+                                      : Colors.red,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                widget.card.status,
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.w500,
+                                  color: widget.card.status == "Available" ||
+                                          widget.card.status == "Free"
+                                      ? const Color(
+                                          0xff69E156) // Green for Available or Free
+                                      : Colors.red,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Qualified " + widget.card.category,
+                            style: const TextStyle(
+                                fontSize: 11, fontWeight: FontWeight.w500),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            'Rs. ${widget.card.price.toStringAsFixed(2)} per hour',
+                            style: const TextStyle(fontWeight: FontWeight.w500),
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
                   ),
                   const SizedBox(height: 15),
                   Form(
