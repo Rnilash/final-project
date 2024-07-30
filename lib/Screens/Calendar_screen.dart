@@ -188,7 +188,7 @@ class _calendar_screenState extends State<calendar_screen> {
               }
             },
           ),
-          const SizedBox(height: 10.0),
+          const SizedBox(height: 50.0),
           Expanded(
             child: Stack(
               children: [
@@ -219,22 +219,60 @@ class _calendar_screenState extends State<calendar_screen> {
                         itemCount: value.length,
                         itemBuilder: (context, index) {
                           return Container(
+                            height: 70,
+                            width: 300,
                             margin: const EdgeInsets.symmetric(
                               horizontal: 25.0,
                               vertical: 8.0,
                             ),
                             decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 2,
+                                  blurRadius: 7,
+                                  offset: const Offset(
+                                      0, 3), // changes position of shadow
+                                ),
+                              ],
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(12.0),
                             ),
-                            child: ListTile(
-                              onTap: () => print('${value[index]}'),
-                              title: Text(
-                                '${value[index]}',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w500),
-                              ),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: ListTile(
+                                    onTap: () => print('${value[index]}'),
+                                    title: Text(
+                                      '${value[index]}',
+                                      style: const TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w500),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Container(
+                                      height: 45,
+                                      width: 100,
+                                      decoration: BoxDecoration(
+                                          color: const Color(0xffFF4444),
+                                          borderRadius:
+                                              BorderRadius.circular(100)),
+                                      child: const Center(
+                                          child: const Text(
+                                        "Cancel",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600),
+                                      )),
+                                    ),
+                                  ),
+                                )
+                              ],
                             ),
                           );
                         },
