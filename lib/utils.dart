@@ -32,11 +32,11 @@ final _kEventSource =
 //         )
     // ..addAll
     ({
-  DateTime(2024, 11, 18): [
-    Event('Meeting (10:00 AM)'),
-    Event('Lunch Break (1:00 PM)'),
+  DateTime(2024, 07, 18): [
+    Event('Coach Dasun Perera'),
+    Event('Royal - MAS Arena'),
   ],
-  DateTime(2024, 11, 22): [
+  DateTime(2024, 08, 22): [
     Event('Gym Workout (8:00 AM)'),
   ],
   // kToday: [

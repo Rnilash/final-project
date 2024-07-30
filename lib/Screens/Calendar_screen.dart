@@ -109,8 +109,8 @@ class _TableComplexExampleState extends State<TableComplexExample> {
         ),
         leading: GestureDetector(
           onTap: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => coach_list()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const coach_list()));
           },
           child: const Icon(
             Icons.arrow_back_ios_new_rounded,
@@ -187,32 +187,44 @@ class _TableComplexExampleState extends State<TableComplexExample> {
                       borderRadius:
                           BorderRadius.vertical(top: Radius.circular(40))),
                 ),
-                SizedBox(
-                  height: 70,
+                Positioned(
+                  top: 15,
+                  left: 140,
+                  right: 140,
+                  child: Container(
+                    height: 5,
+                    width: 250,
+                    decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(100)),
+                        color: Color.fromARGB(255, 70, 70, 70)),
+                  ),
                 ),
-                ValueListenableBuilder<List<Event>>(
-                  valueListenable: _selectedEvents,
-                  builder: (context, value, _) {
-                    return ListView.builder(
-                      itemCount: value.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          margin: const EdgeInsets.symmetric(
-                            horizontal: 12.0,
-                            vertical: 4.0,
-                          ),
-                          decoration: BoxDecoration(
-                            border: Border.all(),
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
-                          child: ListTile(
-                            onTap: () => print('${value[index]}'),
-                            title: Text('${value[index]}'),
-                          ),
-                        );
-                      },
-                    );
-                  },
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
+                  child: ValueListenableBuilder<List<Event>>(
+                    valueListenable: _selectedEvents,
+                    builder: (context, value, _) {
+                      return ListView.builder(
+                        itemCount: value.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            margin: const EdgeInsets.symmetric(
+                              horizontal: 25.0,
+                              vertical: 8.0,
+                            ),
+                            decoration: BoxDecoration(
+                              border: Border.all(),
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                            child: ListTile(
+                              onTap: () => print('${value[index]}'),
+                              title: Text('${value[index]}'),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                  ),
                 ),
               ],
             ),
