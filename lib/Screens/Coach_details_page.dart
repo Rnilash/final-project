@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Const/Colors.dart';
 import 'package:flutter_application_1/Data/arena_data.dart';
+import 'package:flutter_application_1/Screens/Calendar_screen.dart';
 import 'package:flutter_application_1/Screens/arena_Booking.dart';
 import 'package:flutter_application_1/Screens/arena_list.dart';
 import 'package:flutter_application_1/Screens/coach_booking_page.dart';
@@ -40,7 +41,11 @@ class _DetailPageState extends State<Coach_DetailPage> {
                   color: Colors.black,
                 ),
                 onPressed: () {
-                  // Handle search logic
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => calendar_screen(),
+                      ));
                 },
               ),
               IconButton(

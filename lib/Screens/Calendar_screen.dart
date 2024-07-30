@@ -11,12 +11,12 @@ import 'package:table_calendar/table_calendar.dart';
 
 import '../utils.dart';
 
-class TableComplexExample extends StatefulWidget {
+class calendar_screen extends StatefulWidget {
   @override
-  _TableComplexExampleState createState() => _TableComplexExampleState();
+  _calendar_screenState createState() => _calendar_screenState();
 }
 
-class _TableComplexExampleState extends State<TableComplexExample> {
+class _calendar_screenState extends State<calendar_screen> {
   late final ValueNotifier<List<Event>> _selectedEvents;
   final ValueNotifier<DateTime> _focusedDay = ValueNotifier(DateTime.now());
   final Set<DateTime> _selectedDays = LinkedHashSet<DateTime>(
@@ -103,9 +103,20 @@ class _TableComplexExampleState extends State<TableComplexExample> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: maincolor,
-        title: const Text(
-          'Your Calendar',
-          style: TextStyle(color: Colors.black),
+        title: const Row(
+          children: [
+            Icon(
+              Icons.calendar_month_rounded,
+              color: Colors.black,
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            Text(
+              'Your Calendar',
+              style: TextStyle(color: Colors.black),
+            ),
+          ],
         ),
         leading: GestureDetector(
           onTap: () {
@@ -213,12 +224,17 @@ class _TableComplexExampleState extends State<TableComplexExample> {
                               vertical: 8.0,
                             ),
                             decoration: BoxDecoration(
-                              border: Border.all(),
+                              color: Colors.white,
                               borderRadius: BorderRadius.circular(12.0),
                             ),
                             child: ListTile(
                               onTap: () => print('${value[index]}'),
-                              title: Text('${value[index]}'),
+                              title: Text(
+                                '${value[index]}',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500),
+                              ),
                             ),
                           );
                         },
