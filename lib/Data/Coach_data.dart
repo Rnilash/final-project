@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Widgets/Scrollable_card_.dart';
 
 final List<ScrollableCard> coach_cards = [
-  ScrollableCard(
+  const ScrollableCard(
     title: "Saman Thilakasiri",
     location: "Rajagiriya",
     status: "Free",
@@ -22,7 +22,7 @@ final List<ScrollableCard> coach_cards = [
     review2: "Highly recommended for cricket training",
     loc_img: "assets/images/pexels-daliladalprat-1844547.jpg",
   ),
-  ScrollableCard(
+  const ScrollableCard(
     title: "Nimal Fernando",
     location: "Colombo 5",
     status: "Busy",
@@ -37,12 +37,12 @@ final List<ScrollableCard> coach_cards = [
     reviewer_img: "assets/images/pexels-daliladalprat-1844547.jpg",
     reviewer_name: "Kamal Perera",
     review: "Experienced football coach with great techniques",
-    reviewer2_img: "assets/images/reviewer4.jpg",
+    reviewer2_img: "assets/images/pexels-daliladalprat-1844547.jpg",
     reviewer2_name: "Nilanthi Silva",
     review2: "Highly recommended for football training",
     loc_img: "assets/images/pexels-daliladalprat-1844547.jpg",
   ),
-  ScrollableCard(
+  const ScrollableCard(
     title: "Thilina Jayawardena",
     location: "Kandy",
     status: "Free",
@@ -62,7 +62,7 @@ final List<ScrollableCard> coach_cards = [
     review2: "Highly recommended for badminton training",
     loc_img: "assets/images/pexels-daliladalprat-1844547.jpg",
   ),
-  ScrollableCard(
+  const ScrollableCard(
     title: "Maya Perera",
     location: "Nugegoda",
     status: "Busy",
@@ -82,7 +82,7 @@ final List<ScrollableCard> coach_cards = [
     review2: "Highly recommended for yoga classes",
     loc_img: "assets/images/pexels-daliladalprat-1844547.jpg",
   ),
-  ScrollableCard(
+  const ScrollableCard(
     title: "Dinesh Rajapakse",
     location: "Colombo 07",
     status: "Free",
@@ -102,7 +102,7 @@ final List<ScrollableCard> coach_cards = [
     review2: "Highly recommended for basketball training",
     loc_img: "assets/images/pexels-daliladalprat-1844547.jpg",
   ),
-  ScrollableCard(
+  const ScrollableCard(
     title: "Thilanka Wickramasinghe",
     location: "Mount Lavinia",
     status: "Busy",
@@ -122,7 +122,7 @@ final List<ScrollableCard> coach_cards = [
     review2: "Highly recommended for fitness training",
     loc_img: "assets/images/pexels-daliladalprat-1844547.jpg",
   ),
-  ScrollableCard(
+  const ScrollableCard(
     title: "Kavinda Silva",
     location: "Negombo",
     status: "Free",
