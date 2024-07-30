@@ -187,6 +187,9 @@ class _TableComplexExampleState extends State<TableComplexExample> {
                       borderRadius:
                           BorderRadius.vertical(top: Radius.circular(40))),
                 ),
+                SizedBox(
+                  height: 70,
+                ),
                 ValueListenableBuilder<List<Event>>(
                   valueListenable: _selectedEvents,
                   builder: (context, value, _) {
