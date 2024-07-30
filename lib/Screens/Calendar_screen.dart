@@ -4,6 +4,8 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Const/Colors.dart';
+import 'package:flutter_application_1/Screens/coach_list.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -100,7 +102,21 @@ class _TableComplexExampleState extends State<TableComplexExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('TableCalendar - Complex'),
+        backgroundColor: maincolor,
+        title: const Text(
+          'Your Calendar',
+          style: TextStyle(color: Colors.black),
+        ),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => coach_list()));
+          },
+          child: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: Colors.black,
+          ),
+        ),
       ),
       body: Column(
         children: [
@@ -123,13 +139,13 @@ class _TableComplexExampleState extends State<TableComplexExample> {
                 },
                 onLeftArrowTap: () {
                   _pageController.previousPage(
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     curve: Curves.easeOut,
                   );
                 },
                 onRightArrowTap: () {
                   _pageController.nextPage(
-                    duration: Duration(milliseconds: 300),
+                    duration: const Duration(milliseconds: 300),
                     curve: Curves.easeOut,
                   );
                 },
@@ -147,10 +163,10 @@ class _TableComplexExampleState extends State<TableComplexExample> {
             calendarFormat: _calendarFormat,
             rangeSelectionMode: _rangeSelectionMode,
             eventLoader: _getEventsForDay,
-            holidayPredicate: (day) {
-              // Every 20th day of the month will be treated as a holiday
-              return day.day == 20;
-            },
+            // holidayPredicate: (day) {
+            //   // Every 20th day of the month will be treated as a holiday
+            //   return day.day == 20;
+            // },
             onDaySelected: _onDaySelected,
             onRangeSelected: _onRangeSelected,
             onCalendarCreated: (controller) => _pageController = controller,
@@ -161,31 +177,41 @@ class _TableComplexExampleState extends State<TableComplexExample> {
               }
             },
           ),
-          const SizedBox(height: 8.0),
+          const SizedBox(height: 10.0),
           Expanded(
-            child: ValueListenableBuilder<List<Event>>(
-              valueListenable: _selectedEvents,
-              builder: (context, value, _) {
-                return ListView.builder(
-                  itemCount: value.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 12.0,
-                        vertical: 4.0,
-                      ),
-                      decoration: BoxDecoration(
-                        border: Border.all(),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      child: ListTile(
-                        onTap: () => print('${value[index]}'),
-                        title: Text('${value[index]}'),
-                      ),
+            child: Stack(
+              children: [
+                Container(
+                  decoration: const BoxDecoration(
+                      color: Color.fromARGB(214, 111, 190, 247),
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(40))),
+                ),
+                ValueListenableBuilder<List<Event>>(
+                  valueListenable: _selectedEvents,
+                  builder: (context, value, _) {
+                    return ListView.builder(
+                      itemCount: value.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          margin: const EdgeInsets.symmetric(
+                            horizontal: 12.0,
+                            vertical: 4.0,
+                          ),
+                          decoration: BoxDecoration(
+                            border: Border.all(),
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          child: ListTile(
+                            onTap: () => print('${value[index]}'),
+                            title: Text('${value[index]}'),
+                          ),
+                        );
+                      },
                     );
                   },
-                );
-              },
+                ),
+              ],
             ),
           ),
         ],
@@ -225,27 +251,27 @@ class _CalendarHeader extends StatelessWidget {
             width: 120.0,
             child: Text(
               headerText,
-              style: TextStyle(fontSize: 26.0),
+              style: const TextStyle(fontSize: 26.0),
             ),
           ),
           IconButton(
-            icon: Icon(Icons.calendar_today, size: 20.0),
+            icon: const Icon(Icons.calendar_today, size: 20.0),
             visualDensity: VisualDensity.compact,
             onPressed: onTodayButtonTap,
           ),
           if (clearButtonVisible)
             IconButton(
-              icon: Icon(Icons.clear, size: 20.0),
+              icon: const Icon(Icons.clear, size: 20.0),
               visualDensity: VisualDensity.compact,
               onPressed: onClearButtonTap,
             ),
           const Spacer(),
           IconButton(
-            icon: Icon(Icons.chevron_left),
+            icon: const Icon(Icons.chevron_left),
             onPressed: onLeftArrowTap,
           ),
           IconButton(
-            icon: Icon(Icons.chevron_right),
+            icon: const Icon(Icons.chevron_right),
             onPressed: onRightArrowTap,
           ),
         ],
