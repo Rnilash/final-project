@@ -5,7 +5,7 @@ import 'package:flutter_application_1/Models/user_model.dart';
 import 'package:flutter_application_1/Screens/Sign.up.dart';
 import 'package:flutter_application_1/Screens/Log_in_page.dart';
 import 'package:flutter_application_1/Screens/Wrapper.dart';
-import 'package:flutter_application_1/Screens/authenticate.dart';
+
 import 'package:flutter_application_1/Screens/main_dashboard.dart';
 import 'package:flutter_application_1/Widgets/custom_button.dart';
 import 'package:flutter_application_1/test.dart';

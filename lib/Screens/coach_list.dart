@@ -5,6 +5,7 @@ import 'package:flutter_application_1/Data/arena_data.dart';
 import 'package:flutter_application_1/Screens/Calendar_screen.dart';
 import 'package:flutter_application_1/Screens/Coach_details_page.dart';
 import 'package:flutter_application_1/Screens/arena_detail_page.dart';
+import 'package:flutter_application_1/Screens/chat_bot.dart';
 import 'package:flutter_application_1/Screens/main_dashboard.dart';
 import 'package:flutter_application_1/Widgets/Scrollable_card_.dart';
 
@@ -53,7 +54,11 @@ class _coach_listState extends State<coach_list> {
                     color: Colors.black,
                   ),
                   onPressed: () {
-                    // Handle search logic
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ChatBotScreen(),
+                        ));
                   },
                 ),
               ],

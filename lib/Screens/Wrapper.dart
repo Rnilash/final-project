@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Models/user_model.dart';
-import 'package:flutter_application_1/Screens/authenticate.dart';
 import 'package:flutter_application_1/Screens/home_screen.dart';
 import 'package:flutter_application_1/Screens/main_dashboard.dart';
 import 'package:flutter_application_1/test.dart';
