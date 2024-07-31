@@ -29,16 +29,27 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Chatbot'),
+        title: const Text('Chatbot'),
         backgroundColor: maincolor,
       ),
       body: Column(
         children: [
-          SizedBox(),
-          Text(
+          const SizedBox(
+            height: 40,
+          ),
+          const Text(
             "Your AI Assistant",
             style: TextStyle(
                 color: maincolor, fontSize: 25, fontWeight: FontWeight.w600),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const Text(
+            "You can ask your \nquestions and receive articles using artificial \nintelligence assistant",
+            style: TextStyle(
+                color: Color.fromARGB(255, 126, 126, 126), fontSize: 15),
+            textAlign: TextAlign.center,
           ),
           Expanded(
             child: ListView.builder(
@@ -49,20 +60,20 @@ class _ChatBotScreenState extends State<ChatBotScreen> {
             ),
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Row(
               children: [
                 Expanded(
                   child: TextField(
                     controller: _textController,
                     onSubmitted: (_) => sendMessage(),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Type your message',
                     ),
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.send),
+                  icon: const Icon(Icons.send),
                   onPressed: sendMessage,
                 ),
               ],
@@ -89,10 +100,10 @@ class MessageBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 8),
+      margin: const EdgeInsets.symmetric(vertical: 8),
       alignment: message.isUser ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: message.isUser
               ? maincolor
@@ -103,7 +114,7 @@ class MessageBubble extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.2),
-              offset: Offset(2, 2),
+              offset: const Offset(2, 2),
               blurRadius: 4,
             ),
           ],
