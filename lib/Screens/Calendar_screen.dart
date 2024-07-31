@@ -5,6 +5,7 @@ import 'dart:collection';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Const/Colors.dart';
+import 'package:flutter_application_1/Screens/cancel_booking.dart';
 import 'package:flutter_application_1/Screens/coach_list.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -253,7 +254,14 @@ class _calendar_screenState extends State<calendar_screen> {
                                   ),
                                 ),
                                 GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                              cancel_booking(),
+                                        ));
+                                  },
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Container(
