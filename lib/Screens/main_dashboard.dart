@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Const/Colors.dart';
 import 'package:flutter_application_1/Screens/arena_list.dart';
+import 'package:flutter_application_1/Screens/chat_bot.dart';
+import 'package:flutter_application_1/Screens/chat_bot_entrance.dart';
 import 'package:flutter_application_1/Screens/coach_list.dart';
 import 'package:flutter_application_1/Services/Auth.dart';
 import 'package:flutter_application_1/Widgets/dash_tile.dart';
@@ -67,8 +69,17 @@ class main_dash extends StatelessWidget {
                     SizedBox(
                       height: 40,
                     ),
-                    dash_tile(
-                        title: "Shop", image: "assets/images/shop-64.png"),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ChatBotEntrance(),
+                            ));
+                      },
+                      child: dash_tile(
+                          title: "Shop", image: "assets/images/shop-64.png"),
+                    ),
                     // ElevatedButton(
                     //     onPressed: () async {
                     //       await AuthServices().signout();

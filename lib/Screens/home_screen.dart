@@ -12,7 +12,6 @@ import 'package:flutter_application_1/test.dart';
 import 'package:provider/provider.dart';
 
 class home_screen extends StatefulWidget {
-  // final Function toggle;
   const home_screen({
     super.key,
   });

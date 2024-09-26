@@ -54,11 +54,11 @@ class _coach_listState extends State<coach_list> {
                     color: Colors.black,
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => ChatBotScreen(),
-                        ));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => ,
+                    //     ));
                   },
                 ),
               ],
