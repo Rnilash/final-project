@@ -3,6 +3,8 @@ import 'package:flutter_application_1/Const/Colors.dart';
 import 'package:flutter_application_1/Screens/Calendar_screen.dart';
 import 'package:flutter_application_1/Screens/arena_Booking.dart';
 import 'package:flutter_application_1/Screens/arena_list.dart';
+import 'package:flutter_application_1/Screens/profile_data.dart';
+import 'package:flutter_application_1/Screens/profile_main.dart';
 import 'package:flutter_application_1/Widgets/Scrollable_card_.dart';
 import 'package:flutter_application_1/Widgets/custom_button.dart';
 import 'package:flutter_application_1/Widgets/review_card.dart';
@@ -49,7 +51,11 @@ class _DetailPageState extends State<DetailPage> {
                   color: Colors.black,
                 ),
                 onPressed: () {
-                  // Handle search logic
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Profile_main(),
+                      ));
                 },
               ),
             ],

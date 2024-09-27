@@ -7,6 +7,8 @@ import 'package:flutter_application_1/Screens/arena_list.dart';
 import 'package:flutter_application_1/Screens/coach_booking_page.dart';
 import 'package:flutter_application_1/Screens/coach_list.dart';
 import 'package:flutter_application_1/Screens/home_screen.dart';
+import 'package:flutter_application_1/Screens/profile_data.dart';
+import 'package:flutter_application_1/Screens/profile_main.dart';
 import 'package:flutter_application_1/Widgets/Scrollable_card_.dart';
 import 'package:flutter_application_1/Widgets/custom_button.dart';
 
@@ -54,7 +56,11 @@ class _DetailPageState extends State<Coach_DetailPage> {
                   color: Colors.black,
                 ),
                 onPressed: () {
-                  // Handle search logic
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Profile_main(),
+                      ));
                 },
               ),
             ],

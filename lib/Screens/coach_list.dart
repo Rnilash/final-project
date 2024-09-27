@@ -7,6 +7,8 @@ import 'package:flutter_application_1/Screens/Coach_details_page.dart';
 import 'package:flutter_application_1/Screens/arena_detail_page.dart';
 import 'package:flutter_application_1/Screens/chat_bot.dart';
 import 'package:flutter_application_1/Screens/main_dashboard.dart';
+import 'package:flutter_application_1/Screens/profile_data.dart';
+import 'package:flutter_application_1/Screens/profile_main.dart';
 import 'package:flutter_application_1/Widgets/Scrollable_card_.dart';
 
 import 'package:flutter_application_1/Widgets/sport_tile.dart';
@@ -54,11 +56,11 @@ class _coach_listState extends State<coach_list> {
                     color: Colors.black,
                   ),
                   onPressed: () {
-                    // Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => ,
-                    //     ));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Profile_main(),
+                        ));
                   },
                 ),
               ],

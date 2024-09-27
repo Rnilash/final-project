@@ -4,7 +4,8 @@ import 'package:flutter_application_1/Screens/Calendar_screen.dart';
 import 'package:flutter_application_1/Screens/arena_detail_page.dart';
 
 import 'package:flutter_application_1/Screens/payment_page.dart';
-import 'package:flutter_application_1/Screens/profile_page.dart';
+import 'package:flutter_application_1/Screens/profile_data.dart';
+import 'package:flutter_application_1/Screens/profile_main.dart';
 import 'package:flutter_application_1/Widgets/Scrollable_card_.dart';
 import 'package:flutter_application_1/Widgets/custom_button.dart';
 
@@ -80,7 +81,7 @@ class _arena_bookingState extends State<arena_booking> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ProfileScreen(),
+                          builder: (context) => Profile_main(),
                         ));
                   },
                 ),

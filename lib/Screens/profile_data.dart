@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Const/Colors.dart';
+import 'package:flutter_application_1/Widgets/custom_button.dart';
 
-class ProfileScreen extends StatefulWidget {
+class Profile_data extends StatefulWidget {
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
+  _Profile_dataState createState() => _Profile_dataState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _Profile_dataState extends State<Profile_data> {
   final _formKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController(text: 'Kasun');
   final _emailController = TextEditingController(text: 'Kasun2@gmail.com');
@@ -17,30 +19,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text('Profile'),
-        backgroundColor: Colors.lightBlue,
+        title: const Text(
+          'Profile',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: maincolor,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
             children: [
-              SizedBox(height: 20.0),
-              CircleAvatar(
+              const SizedBox(height: 40.0),
+              const CircleAvatar(
                 radius: 60.0,
                 backgroundImage: AssetImage(
-                    'assets/profile_pic.png'), // Replace with actual asset path
+                    'assets/images/pexels-justin-shaifer-501272-1222271.jpg'), // Replace with actual asset path
               ),
-              SizedBox(height: 10.0),
-              Text('Change Picture'),
-              SizedBox(height: 30.0),
+              const SizedBox(height: 10.0),
+              const Text('Change Picture'),
+              const SizedBox(height: 60.0),
               TextFormField(
                 controller: _usernameController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Username',
                   border: OutlineInputBorder(),
                 ),
@@ -51,10 +59,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               TextFormField(
                 controller: _emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Email I\'d',
                   border: OutlineInputBorder(),
                 ),
@@ -68,10 +76,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               TextFormField(
                 controller: _phoneNumberController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Phone Number',
                   border: OutlineInputBorder(),
                 ),
@@ -83,11 +91,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 20.0),
+              const SizedBox(height: 20.0),
               TextFormField(
                 controller: _passwordController,
                 obscureText: true,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(),
                 ),
@@ -98,32 +106,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   return null;
                 },
               ),
-              SizedBox(height: 30.0),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    // Process data
-                    print('Username: ${_usernameController.text}');
-                    print('Email: ${_emailController.text}');
-                    print('Phone Number: ${_phoneNumberController.text}');
-                    print('Password: ${_passwordController.text}');
-                  }
-                },
-                child: Text(
-                  'Update',
-                  style: TextStyle(fontSize: 18.0),
-                ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.lightBlue,
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 50.0,
-                    vertical: 15.0,
-                  ),
-                  textStyle: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
+              const SizedBox(height: 30.0),
+              GestureDetector(
+                  onTap: () {
+                    if (_formKey.currentState!.validate()) {
+                      // Process data
+                      print('Username: ${_usernameController.text}');
+                      print('Email: ${_emailController.text}');
+                      print('Phone Number: ${_phoneNumberController.text}');
+                      print('Password: ${_passwordController.text}');
+                    }
+                  },
+                  child:
+                      const Custom_button(Bgcolor: maincolor, title: "UPDATE"))
             ],
           ),
         ),
