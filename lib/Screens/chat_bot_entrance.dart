@@ -14,10 +14,11 @@ class _ChatBotEntranceState extends State<ChatBotEntrance> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Center(
         child: Column(children: [
           const SizedBox(
-            height: 150,
+            height: 60,
           ),
           const Text(
             "Your AI Assistant",

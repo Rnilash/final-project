@@ -141,7 +141,7 @@ class _ChatBoxState extends State<ChatBox> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chat Box'),
+        title: const Text('Chat Bot'),
       ),
       body: Column(
         children: [
